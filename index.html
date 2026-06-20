@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width,initial-scale=1">
+
+<title>FaMiLe</title>
 
 <style>
+
 *{
   box-sizing:border-box;
 }
@@ -12,11 +18,14 @@ body{
   margin:0;
   font-family:Arial,sans-serif;
   background:#eef3f8;
-  padding-top:70px;
-  padding-bottom:90px;
+  padding-top:65px;
+  padding-bottom:85px;
 }
 
-/* TOP BAR */
+/* =====================
+   TOP BAR
+===================== */
+
 .top-bar{
   position:fixed;
   top:0;
@@ -34,94 +43,135 @@ body{
 .menu-icon{
   position:absolute;
   left:5px;
-  background:none;
   border:none;
+  background:none;
   font-size:30px;
   color:#000;
   cursor:pointer;
 }
 
 .page-title{
-  font-size:22px;
-  font-weight:600;
+  font-size:24px;
+  font-weight:700;
   color:#000;
 }
 
-/* CONTENT */
+/* =====================
+   SIDE MENU
+===================== */
+
+.side-menu{
+  position:fixed;
+  top:0;
+  left:-250px;
+  width:220px;
+  height:100%;
+  background:#fff;
+  box-shadow:2px 0 12px rgba(0,0,0,0.20);
+  padding:20px;
+  transition:0.3s;
+  z-index:1100;
+}
+
+.side-menu.open{
+  left:0;
+}
+
+.exit-btn{
+  display:block;
+  margin-top:40px;
+  padding:14px;
+  background:#8fb0ff;
+  color:#000;
+  text-decoration:none;
+  text-align:center;
+  border-radius:15px;
+}
+
+/* =====================
+   POPUP
+===================== */
+
+.popup{
+  display:none;
+  position:fixed;
+  top:70px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#5f84e8;
+  color:#fff;
+  padding:12px 20px;
+  border-radius:15px;
+  z-index:1200;
+}
+
+/* =====================
+   MAIN CONTAINER
+===================== */
+
 .container{
   max-width:430px;
   margin:auto;
   padding:15px;
 }
 
-/* TOP 4 BUTTONS */
+/* =====================
+   TOP 4 BUTTONS
+===================== */
+
 .rect-row{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:5px;
   background:#dce7ff;
-  padding:5px;
+  padding:6px;
   border-radius:20px;
-  margin-bottom:30px;
+  margin-bottom:20px;
 }
 
 .rect-btn{
-  background:transparent;
-  border:none;
+  padding:12px 5px;
+  text-align:center;
+  text-decoration:none;
+  color:#222;
   border-radius:15px;
-  padding:14px 5px;
-  text-align:center;
-  text-decoration:none;
-  color:#222;
   font-size:13px;
-  font-weight:600;
-  cursor:pointer;
 }
 
-.rect-btn.active{
-  background:#8fb0ff;
-  color:#000;
+/* =====================
+   ACTIVE BUTTON
+===================== */
+
+.active{
+  background:#5f84e8;
+  color:#fff !important;
 }
 
-/* ICON GROUPS */
-.circle-grid{
-  display:none;
-  grid-template-columns:repeat(2,1fr);
-  gap:35px;
+/* =====================
+   HOME MESSAGE
+===================== */
+
+.welcome-box{
+  background:#fff;
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.08);
+  line-height:1.8;
 }
 
-.circle-item{
-  text-decoration:none;
+.welcome-box h2{
   text-align:center;
-  color:#222;
+  color:#5f84e8;
 }
 
-.circle{
-  width:90px;
-  height:90px;
-  margin:auto;
-  background:#dce7ff;
-  border:1px solid #c4d4ff;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.welcome-box h3{
+  color:#5f84e8;
 }
 
-.circle img{
-  width:50px;
-  height:50px;
-  object-fit:contain;
-}
+/* =====================
+   BOTTOM NAVIGATION
+===================== */
 
-.circle-item span{
-  display:block;
-  margin-top:12px;
-  font-size:15px;
-  font-weight:500;
-}
-
-/* BOTTOM BAR */
 .bottom-nav{
   position:fixed;
   bottom:0;
@@ -132,8 +182,6 @@ body{
   display:flex;
   justify-content:space-around;
   align-items:center;
-  border-top-left-radius:20px;
-  border-top-right-radius:20px;
   box-shadow:0 -2px 10px rgba(0,0,0,0.15);
 }
 
@@ -141,208 +189,455 @@ body{
   text-decoration:none;
   color:#000;
   text-align:center;
-  font-size:12px;
+  font-size:11px;
+  padding:5px;
+  border-radius:12px;
 }
 
 .bottom-nav img{
   width:26px;
   height:26px;
   display:block;
-  margin:auto auto 5px;
+  margin:auto auto 4px;
 }
+
 </style>
+
 </head>
 
 <body>
 
-<!-- TOP BAR -->
-<div class="top-bar">
-  <button class="menu-icon">☰</button>
-  <div class="page-title">Reports</div>
+<!-- SIDE MENU -->
+
+<div id="menu"
+     class="side-menu">
+
+  <a href="#"
+     class="exit-btn"
+     onclick="showExit();return false;">
+     Exit
+  </a>
+
 </div>
 
-<!-- CONTENT -->
+<!-- POPUP -->
+
+<div id="popup"
+     class="popup">
+
+  Exiting...
+
+</div>
+
+<!-- TOP BAR -->
+
+<div class="top-bar">
+
+  <button class="menu-icon"
+          onclick="toggleMenu()">
+          ☰
+  </button>
+
+  <div class="page-title">
+      FaMiLe
+  </div>
+
+</div>
+
 <div class="container">
 
-  <!-- 4 SELECT BUTTONS -->
+  <!-- TOP 4 BUTTONS -->
+
   <div class="rect-row">
 
-    <a href="#" class="rect-btn active"
-       onclick="selectBtn(this,'group1');return false;">
-      Btn 1
+    <a href="#"
+       class="rect-btn"
+       onclick="showGroup('g1',this)">
+       Expenses
     </a>
 
-    <a href="#" class="rect-btn"
-       onclick="selectBtn(this,'group2');return false;">
-      Btn 2
+    <a href="#"
+       class="rect-btn"
+       onclick="showGroup('g2',this)">
+       Activities
     </a>
 
-    <a href="#" class="rect-btn"
-       onclick="selectBtn(this,'group3');return false;">
-      Btn 3
+    <a href="#"
+       class="rect-btn"
+       onclick="showGroup('g3',this)">
+       Health
     </a>
 
-    <a href="#" class="rect-btn"
-       onclick="selectBtn(this,'group4');return false;">
-      Btn 4
+    <a href="#"
+       class="rect-btn"
+       onclick="showGroup('g4',this)">
+       Loans
     </a>
+<!-- HOME MESSAGE -->
 
-  </div>
+<div id="homeMessage"
+     class="welcome-box">
 
-  <!-- BUTTON 1 ICONS -->
-  <div class="circle-grid" id="group1">
+  <h2>Welcome to KaniS Smart Manager</h2>
 
-    <a href="#" class="circle-item">
-      <div class="circle"><img src="Icon1.png"></div>
-      <span>Icon 1</span>
-    </a>
+  <p>Track your :</p>
 
-    <a href="#" class="circle-item">
-      <div class="circle"><img src="Icon2.png"></div>
-      <span>Icon 2</span>
-    </a>
+  <p>
+    ...Income<br>
+    ...Expenses<br>
+    ...Activities<br>
+    ...Loans<br>
+    ...Health<br>
+    ...Family
+  </p>
 
-    <a href="#" class="circle-item">
-      <div class="circle"><img src="Icon3.png"></div>
-      <span>Icon 3</span>
-    </a>
+  <h3>💰 Expenses Management</h3>
 
-    <a href="#" class="circle-item">
-      <div class="circle"><img src="Icon4.png"></div>
-      <span>Icon 4</span>
-    </a>
+  <p>
+    Track your daily expenses and monitor spendings easily.
+  </p>
 
-  </div>
+  <ul>
+    <li>Add income and expenses</li>
+    <li>View weekly and monthly reports</li>
+    <li>Manage categories</li>
+    <li>Track sensitive expenses</li>
+  </ul>
 
-  <!-- BUTTON 2 ICONS -->
-  <div class="circle-grid" id="group2">
+  <h3>🏦 Loan Management</h3>
 
-    <a href="#" class="circle-item">
-      <div class="circle"><img src="Icon5.png"></div>
-      <span>Icon 5</span>
-    </a>
+  <ul>
+    <li>Add loan details</li>
+    <li>Track payment history</li>
+    <li>Monitor pending balances</li>
+    <li>Generate reports</li>
+  </ul>
 
-    <a href="#" class="circle-item">
-      <div class="circle"><img src="Icon6.png"></div>
-      <span>Icon 6</span>
-    </a>
+  <h3>📋 Activities & Tasks Management</h3>
 
-    <a href="#" class="circle-item">
-      <div class="circle"><img src="Icon7.png"></div>
-      <span>Icon 7</span>
-    </a>
+  <ul>
+    <li>Create tasks</li>
+    <li>Track deadlines</li>
+    <li>Birthday reminders</li>
+    <li>Daily activity management</li>
+  </ul>
 
-    <a href="#" class="circle-item">
-      <div class="circle"><img src="Icon8.png"></div>
-      <span>Icon 8</span>
-    </a>
+  <h3>📊 Reports & Dashboard</h3>
 
-  </div>
+  <p>
+    View complete financial summaries and activity reports.
+  </p>
 
-  <!-- BUTTON 3 ICONS -->
-  <div class="circle-grid" id="group3">
+  <h3>🔒 Privacy & Security</h3>
 
-    <a href="#" class="circle-item">
-      <div class="circle"><img src="Icon9.png"></div>
-      <span>Icon 9</span>
-    </a>
-
-    <a href="#" class="circle-item">
-      <div class="circle"><img src="Icon10.png"></div>
-      <span>Icon 10</span>
-    </a>
-
-    <a href="#" class="circle-item">
-      <div class="circle"><img src="Icon11.png"></div>
-      <span>Icon 11</span>
-    </a>
-
-    <a href="#" class="circle-item">
-      <div class="circle"><img src="Icon12.png"></div>
-      <span>Icon 12</span>
-    </a>
-
-  </div>
-
-  <!-- BUTTON 4 ICONS -->
-  <div class="circle-grid" id="group4">
-
-    <a href="#" class="circle-item">
-      <div class="circle"><img src="Icon13.png"></div>
-      <span>Icon 13</span>
-    </a>
-
-    <a href="#" class="circle-item">
-      <div class="circle"><img src="Icon14.png"></div>
-      <span>Icon 14</span>
-    </a>
-
-    <a href="#" class="circle-item">
-      <div class="circle"><img src="Icon15.png"></div>
-      <span>Icon 15</span>
-    </a>
-
-    <a href="#" class="circle-item">
-      <div class="circle"><img src="Icon16.png"></div>
-      <span>Icon 16</span>
-    </a>
-
-  </div>
-
+  <p>
+    Protect important data with secure access features.
+  </p>
+</div>
 </div>
 
-<!-- BOTTOM NAVIGATION -->
+<!-- CIRCULAR BUTTON GROUPS -->
+
+<div id="g1" class="circle-grid"></div>
+<div id="g2" class="circle-grid"></div>
+<div id="g3" class="circle-grid"></div>
+<div id="g4" class="circle-grid"></div>
+<div id="g6" class="circle-grid"></div>
+<div id="g7" class="circle-grid"></div>
+<div id="g8" class="circle-grid"></div>
+<div id="g9" class="circle-grid"></div>
+  </div>
+  <!-- ======================
+     BOTTOM NAVIGATION
+====================== -->
+
 <div class="bottom-nav">
 
-  <a href="#">
+  <a href="#"
+     class="nav-btn active"
+     onclick="showHome(this);return false;">
     <img src="Home.png">
     <div>Home</div>
   </a>
 
-  <a href="#">
-    <img src="Expenses3.png">
-    <div>Expenses</div>
+  <a href="#"
+     class="nav-btn"
+     onclick="showGroup('g6',this);return false;">
+    <img src="FT3.png">
+    <div>FamilyTree</div>
   </a>
 
-  <a href="#">
-    <img src="Activities1.png">
-    <div>Activities</div>
+  <a href="#"
+     class="nav-btn"
+     onclick="showGroup('g7',this);return false;">
+    <img src="Payments12.png">
+    <div>Payments</div>
   </a>
 
-  <a href="#">
+  <a href="#"
+     class="nav-btn"
+     onclick="showGroup('g8',this);return false;">
+    <img src="Charts.png">
+    <div>Charts</div>
+  </a>
+
+  <a href="#"
+     class="nav-btn"
+     onclick="showGroup('g9',this);return false;">
     <img src="Reports3.png">
     <div>Reports</div>
   </a>
 
-  <a href="#">
-    <img src="FT3.png">
-    <div>Family</div>
-  </a>
-
 </div>
 
+
 <script>
-function selectBtn(btn, groupId){
 
-  // Change selected button
-  document.querySelectorAll('.rect-btn').forEach(function(item){
-    item.classList.remove('active');
+/* =========================
+   CREATE CIRCULAR BUTTONS
+========================= */
+
+const data = {
+
+  g1:[
+    "Add New Expense",
+    "Reports",
+    "Custom Search",
+    "About"
+  ],
+
+  g2:[
+    "Add New Activity",
+    "Reports",
+    "Custom Search",
+    "About"
+  ],
+
+  g3:[
+    "Add New Medicine",
+    "Reports",
+    "Custom Search",
+    "About"
+  ],
+
+  g4:[
+    "Add New Loan",
+    "Reports",
+    "Custom Search",
+    "About"
+  ],
+
+  g6:[
+    "Family",
+    "Add Member",
+    "Add Family",
+    "FamilyTree"
+  ],
+
+  g7:[
+    "Add Payment",
+    "Reports",
+    "Custom Search",
+    "About"
+  ],
+
+  g8:[
+    "Income Charts",
+    "Expense Charts",
+    "Loan Charts",
+    "Activity Charts"
+  ],
+
+  g9:[
+    "Expense Reports",
+    "Activity Reports",
+    "Health Reports",
+    "Loan Reports"
+  ]
+
+};
+
+
+/* =========================
+   CREATE BUTTON HTML
+========================= */
+
+for(const id in data){
+
+  const box =
+      document.getElementById(id);
+
+  data[id].forEach(function(text){
+
+    box.innerHTML +=
+
+      `<a href="#"
+          class="circle-item">
+
+          <div class="circle">
+
+            <img src="Icon1.png">
+
+          </div>
+
+          <span>${text}</span>
+
+      </a>`;
+
   });
-  btn.classList.add('active');
 
-  // Hide all icon groups
-  document.querySelectorAll('.circle-grid').forEach(function(group){
-    group.style.display = 'none';
-  });
-
-  // Show selected group
-  document.getElementById(groupId).style.display = 'grid';
 }
 
-// Show Button1 icons on page load
-window.onload = function(){
-  document.getElementById('group1').style.display = 'grid';
+
+/* =========================
+   HIDE ALL GROUPS
+========================= */
+
+function hideGroups(){
+
+  document
+    .querySelectorAll('.circle-grid')
+    .forEach(function(g){
+
+      g.style.display = 'none';
+
+    });
+
+  document
+    .getElementById('homeMessage')
+    .style.display = 'none';
+}
+
+
+/* =========================
+   REMOVE ACTIVE
+========================= */
+
+function clearActive(){
+
+  document
+    .querySelectorAll(
+      '.rect-btn,.nav-btn'
+    )
+    .forEach(function(btn){
+
+      btn.classList.remove(
+        'active'
+      );
+
+    });
+
+}
+
+
+/* =========================
+   SHOW HOME
+========================= */
+
+function showHome(btn){
+
+  clearActive();
+
+  btn.classList.add(
+    'active'
+  );
+
+  hideGroups();
+
+  document
+    .getElementById(
+      'homeMessage'
+    )
+    .style.display = 'block';
+
+}
+
+
+/* =========================
+   SHOW GROUP
+========================= */
+
+function showGroup(
+  id,
+  btn
+){
+
+  clearActive();
+
+  btn.classList.add(
+    'active'
+  );
+
+  hideGroups();
+
+  document
+    .getElementById(id)
+    .style.display = 'grid';
+
+}
+
+
+/* =========================
+   OPEN SIDE MENU
+========================= */
+
+function toggleMenu(){
+
+  document
+    .getElementById('menu')
+    .classList.toggle(
+      'open'
+    );
+
+}
+
+
+/* =========================
+   EXIT POPUP
+========================= */
+
+function showExit(){
+
+  document
+    .getElementById('menu')
+    .classList.remove(
+      'open'
+    );
+
+  const p =
+    document.getElementById(
+      'popup'
+    );
+
+  p.style.display =
+    'block';
+
+  setTimeout(function(){
+
+    p.style.display =
+      'none';
+
+  },2000);
+
+}
+
+
+/* =========================
+   DEFAULT HOME
+========================= */
+
+window.onload =
+function(){
+
+  document
+    .getElementById(
+      'homeMessage'
+    )
+    .style.display =
+      'block';
+
 };
+
 </script>
 
 </body>
