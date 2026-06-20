@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-  *{
+*{
   box-sizing:border-box;
 }
 
@@ -32,7 +31,6 @@ body{
   z-index:1000;
 }
 
- 
 .menu-icon{
   position:absolute;
   left:5px;
@@ -55,13 +53,40 @@ body{
   padding:15px;
 }
 
+/* 4 BUTTONS IN ONE CONTAINER */
+.rect-row{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:5px;
+  background:#dce7ff;
+  padding:5px;
+  border-radius:20px;
+  margin-bottom:35px;
+}
+
+.rect-btn{
+  background:transparent;
+  border:none;
+  border-radius:15px;
+  padding:14px 5px;
+  text-align:center;
+  text-decoration:none;
+  color:#222;
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.rect-btn.active{
+  background:#8fb0ff;
+  color:#000;
+}
 
 /* 4 CIRCULAR BUTTONS */
 .circle-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:35px;
-  margin-top:35px;
 }
 
 .circle-item{
@@ -94,32 +119,7 @@ body{
   font-size:15px;
   font-weight:500;
 }
-.rect-row{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:5px;
-  background:#dce7ff;
-  padding:5px;
-  border-radius:20px;
-  margin-bottom:30px;
-}
-.rect-btn{
-  background:transparent;
-  border:none;
-  border-radius:15px;
-  padding:14px 5px;
-  text-align:center;
-  text-decoration:none;
-  color:#222;
-  font-size:14px;
-  font-weight:600;
-  cursor:pointer;
-}
 
-.rect-btn.active{
-  background:#8fb0ff;   /* Same as bottom bar */
-  color:#000;
-}
 /* BOTTOM BAR */
 .bottom-nav{
   position:fixed;
@@ -149,38 +149,9 @@ body{
   display:block;
   margin:auto auto 5px;
 }
-  .rect-row{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin-bottom:30px;
-}
-
-.rect-btn{
-  background:#ffffff;
-  border:none;
-  border-radius:15px;
-  padding:15px 5px;
-  text-decoration:none;
-  text-align:center;
-  font-size:14px;
-  font-weight:600;
-  color:#222;
-  box-shadow:0 2px 10px rgba(0,0,0,0.08);
-}
 </style>
 </head>
-<script>
-function selectBtn(btn){
 
-  document.querySelectorAll('.rect-btn')
-    .forEach(function(item){
-      item.classList.remove('active');
-    });
-
-  btn.classList.add('active');
-}
-</script>
 <body>
 
 <!-- TOP HEADER -->
@@ -192,33 +163,31 @@ function selectBtn(btn){
 <!-- CONTENT -->
 <div class="container">
 
-  <!-- 3 RECTANGULAR BUTTONS -->
+  <!-- 4 BUTTONS -->
   <div class="rect-row">
 
-  <a href="#" class="rect-btn">Button 1</a>
+    <a href="#" class="rect-btn active"
+       onclick="selectBtn(this)">
+      Btn 1
+    </a>
 
-  <a href="#" class="rect-btn">Button 2</a>
+    <a href="#" class="rect-btn"
+       onclick="selectBtn(this)">
+      Btn 2
+    </a>
 
-  <a href="#" class="rect-btn">Button 3</a>
-<div class="rect-row">
+    <a href="#" class="rect-btn"
+       onclick="selectBtn(this)">
+      Btn 3
+    </a>
 
-  <a href="#" class="rect-btn active"
-     onclick="selectBtn(this)">
-    Button 1
-  </a>
+    <a href="#" class="rect-btn"
+       onclick="selectBtn(this)">
+      Btn 4
+    </a>
 
-  <a href="#" class="rect-btn"
-     onclick="selectBtn(this)">
-    Button 2
-  </a>
+  </div>
 
-  <a href="#" class="rect-btn"
-     onclick="selectBtn(this)">
-    Button 3
-  </a>
-
-</div>
-</div>
   <!-- 4 CIRCULAR IMAGE BUTTONS -->
   <div class="circle-grid">
 
@@ -283,6 +252,17 @@ function selectBtn(btn){
   </a>
 
 </div>
+
+<script>
+function selectBtn(btn){
+  document.querySelectorAll('.rect-btn')
+    .forEach(function(item){
+      item.classList.remove('active');
+    });
+
+  btn.classList.add('active');
+}
+</script>
 
 </body>
 </html>
