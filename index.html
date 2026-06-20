@@ -1,73 +1,224 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+*{
+  box-sizing:border-box;
+}
+
 body{
-margin:20px;
-font-family:Arial;
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#eef3f8;
+  padding-top:70px;
+  padding-bottom:90px;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
+/* TOP BAR */
+.top-bar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:60px;
+  background:#8fb0ff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 2px 8px rgba(0,0,0,0.15);
+  z-index:1000;
 }
 
-.item{
-text-decoration:none;
-text-align:center;
-color:black;
+.menu-icon{
+  position:absolute;
+  left:5px;
+  background:none;
+  border:none;
+  font-size:30px;
+  color:#000;
 }
 
-.item img{
-width:60px;
-height:60px;
-display:block;
-margin:auto;
+.page-title{
+  font-size:22px;
+  font-weight:600;
+  color:#000;
 }
 
-.label{
-margin-top:8px;
-font-size:14px;
+/* MAIN CONTAINER */
+.container{
+  max-width:430px;
+  margin:auto;
+  padding:15px;
+}
+
+/* 3 RECTANGULAR BUTTONS */
+.rect-btn{
+  display:block;
+  width:100%;
+  background:#ffffff;
+  border:none;
+  border-radius:18px;
+  padding:18px;
+  margin-bottom:15px;
+  font-size:18px;
+  font-weight:600;
+  color:#222;
+  text-align:center;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+  text-decoration:none;
+}
+
+/* 4 CIRCULAR BUTTONS */
+.circle-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:35px;
+  margin-top:35px;
+}
+
+.circle-item{
+  text-decoration:none;
+  text-align:center;
+  color:#222;
+}
+
+.circle{
+  width:90px;
+  height:90px;
+  margin:auto;
+  background:#dce7ff;
+  border:1px solid #c4d4ff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.circle img{
+  width:50px;
+  height:50px;
+  object-fit:contain;
+}
+
+.circle-item span{
+  display:block;
+  margin-top:12px;
+  font-size:15px;
+  font-weight:500;
+}
+
+/* BOTTOM BAR */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:70px;
+  background:#8fb0ff;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  border-top-left-radius:20px;
+  border-top-right-radius:20px;
+  box-shadow:0 -2px 10px rgba(0,0,0,0.15);
+}
+
+.bottom-nav a{
+  text-decoration:none;
+  color:#000;
+  text-align:center;
+  font-size:12px;
+}
+
+.bottom-nav img{
+  width:26px;
+  height:26px;
+  display:block;
+  margin:auto auto 5px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="grid">
+<!-- TOP HEADER -->
+<div class="top-bar">
+  <button class="menu-icon">☰</button>
+  <div class="page-title">Reports</div>
+</div>
 
-<a class="item" href="#">
-<img src="expenses.png">
-<div class="label">Expenses</div>
-</a>
+<!-- CONTENT -->
+<div class="container">
 
-<a class="item" href="#">
-<img src="activities.png">
-<div class="label">Activities</div>
-</a>
+  <!-- 3 RECTANGULAR BUTTONS -->
+  <a href="#" class="rect-btn">Button 1</a>
+  <a href="#" class="rect-btn">Button 2</a>
+  <a href="#" class="rect-btn">Button 3</a>
 
-<a class="item" href="#">
-<img src="health.png">
-<div class="label">Health</div>
-</a>
+  <!-- 4 CIRCULAR IMAGE BUTTONS -->
+  <div class="circle-grid">
 
-<a class="item" href="#">
-<img src="loans.png">
-<div class="label">Loans</div>
-</a>
+    <a href="#" class="circle-item">
+      <div class="circle">
+        <img src="Icon1.png">
+      </div>
+      <span>Icon 1</span>
+    </a>
 
-<a class="item" href="#">
-<img src="memories.png">
-<div class="label">Memories</div>
-</a>
+    <a href="#" class="circle-item">
+      <div class="circle">
+        <img src="Icon2.png">
+      </div>
+      <span>Icon 2</span>
+    </a>
 
-<a class="item" href="#">
-<img src="about.png">
-<div class="label">About</div>
-</a>
+    <a href="#" class="circle-item">
+      <div class="circle">
+        <img src="Icon3.png">
+      </div>
+      <span>Icon 3</span>
+    </a>
+
+    <a href="#" class="circle-item">
+      <div class="circle">
+        <img src="Icon4.png">
+      </div>
+      <span>Icon 4</span>
+    </a>
+
+  </div>
+
+</div>
+
+<!-- BOTTOM NAVIGATION -->
+<div class="bottom-nav">
+
+  <a href="#">
+    <img src="Home.png">
+    <div>Home</div>
+  </a>
+
+  <a href="#">
+    <img src="Expenses3.png">
+    <div>Expenses</div>
+  </a>
+
+  <a href="#">
+    <img src="Activities1.png">
+    <div>Activities</div>
+  </a>
+
+  <a href="#">
+    <img src="Reports3.png">
+    <div>Reports</div>
+  </a>
+
+  <a href="#">
+    <img src="FT3.png">
+    <div>Family</div>
+  </a>
 
 </div>
 
