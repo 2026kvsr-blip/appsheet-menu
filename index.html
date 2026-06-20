@@ -53,7 +53,7 @@ body{
   padding:15px;
 }
 
-/* 4 BUTTONS IN ONE CONTAINER */
+/* 4 BUTTONS CONTAINER */
 .rect-row{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -61,7 +61,7 @@ body{
   background:#dce7ff;
   padding:5px;
   border-radius:20px;
-  margin-bottom:35px;
+  margin-bottom:30px;
 }
 
 .rect-btn{
@@ -82,7 +82,7 @@ body{
   color:#000;
 }
 
-/* 4 CIRCULAR BUTTONS */
+/* CIRCULAR BUTTONS */
 .circle-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -120,7 +120,12 @@ body{
   font-weight:500;
 }
 
-/* BOTTOM BAR */
+/* Hide initially */
+#button1Content{
+  display:none;
+}
+
+/* BOTTOM NAVIGATION */
 .bottom-nav{
   position:fixed;
   bottom:0;
@@ -163,33 +168,37 @@ body{
 <!-- CONTENT -->
 <div class="container">
 
-  <!-- 4 BUTTONS -->
+  <!-- 4 TOP BUTTONS -->
   <div class="rect-row">
 
-    <a href="#" class="rect-btn active"
-       onclick="selectBtn(this)">
+    <a href="#"
+       class="rect-btn active"
+       onclick="selectBtn(this,'button1Content');return false;">
       Btn 1
     </a>
 
-    <a href="#" class="rect-btn"
-       onclick="selectBtn(this)">
+    <a href="#"
+       class="rect-btn"
+       onclick="selectBtn(this,'');return false;">
       Btn 2
     </a>
 
-    <a href="#" class="rect-btn"
-       onclick="selectBtn(this)">
+    <a href="#"
+       class="rect-btn"
+       onclick="selectBtn(this,'');return false;">
       Btn 3
     </a>
 
-    <a href="#" class="rect-btn"
-       onclick="selectBtn(this)">
+    <a href="#"
+       class="rect-btn"
+       onclick="selectBtn(this,'');return false;">
       Btn 4
     </a>
 
   </div>
 
-  <!-- 4 CIRCULAR IMAGE BUTTONS -->
-  <div class="circle-grid">
+  <!-- SHOW ONLY FOR BUTTON1 -->
+  <div class="circle-grid" id="button1Content">
 
     <a href="#" class="circle-item">
       <div class="circle">
@@ -210,7 +219,7 @@ body{
         <img src="Icon3.png">
       </div>
       <span>Icon 3</span>
-    </a>
+      </a>
 
     <a href="#" class="circle-item">
       <div class="circle">
@@ -254,14 +263,25 @@ body{
 </div>
 
 <script>
-function selectBtn(btn){
-  document.querySelectorAll('.rect-btn')
-    .forEach(function(item){
-      item.classList.remove('active');
-    });
+function selectBtn(btn, contentId){
+
+  document.querySelectorAll('.rect-btn').forEach(function(item){
+    item.classList.remove('active');
+  });
 
   btn.classList.add('active');
+
+  document.getElementById('button1Content').style.display = 'none';
+
+  if(contentId){
+    document.getElementById(contentId).style.display = 'grid';
+  }
 }
+
+/* Page load */
+window.onload = function(){
+  document.getElementById('button1Content').style.display = 'grid';
+};
 </script>
 
 </body>
