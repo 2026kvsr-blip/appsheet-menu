@@ -38,6 +38,7 @@ body{
   border:none;
   font-size:30px;
   color:#000;
+  cursor:pointer;
 }
 
 .page-title{
@@ -46,14 +47,14 @@ body{
   color:#000;
 }
 
-/* MAIN CONTAINER */
+/* CONTENT */
 .container{
   max-width:430px;
   margin:auto;
   padding:15px;
 }
 
-/* 4 BUTTONS CONTAINER */
+/* TOP 4 BUTTONS */
 .rect-row{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -82,9 +83,9 @@ body{
   color:#000;
 }
 
-/* CIRCULAR BUTTONS */
+/* ICON GROUPS */
 .circle-grid{
-  display:grid;
+  display:none;
   grid-template-columns:repeat(2,1fr);
   gap:35px;
 }
@@ -120,12 +121,7 @@ body{
   font-weight:500;
 }
 
-/* Hide initially */
-#button1Content{
-  display:none;
-}
-
-/* BOTTOM NAVIGATION */
+/* BOTTOM BAR */
 .bottom-nav{
   position:fixed;
   bottom:0;
@@ -159,7 +155,7 @@ body{
 
 <body>
 
-<!-- TOP HEADER -->
+<!-- TOP BAR -->
 <div class="top-bar">
   <button class="menu-icon">☰</button>
   <div class="page-title">Reports</div>
@@ -168,64 +164,127 @@ body{
 <!-- CONTENT -->
 <div class="container">
 
-  <!-- 4 TOP BUTTONS -->
+  <!-- 4 SELECT BUTTONS -->
   <div class="rect-row">
 
-    <a href="#"
-       class="rect-btn active"
-       onclick="selectBtn(this,'button1Content');return false;">
+    <a href="#" class="rect-btn active"
+       onclick="selectBtn(this,'group1');return false;">
       Btn 1
     </a>
 
-    <a href="#"
-       class="rect-btn"
-       onclick="selectBtn(this,'');return false;">
+    <a href="#" class="rect-btn"
+       onclick="selectBtn(this,'group2');return false;">
       Btn 2
     </a>
 
-    <a href="#"
-       class="rect-btn"
-       onclick="selectBtn(this,'');return false;">
+    <a href="#" class="rect-btn"
+       onclick="selectBtn(this,'group3');return false;">
       Btn 3
     </a>
 
-    <a href="#"
-       class="rect-btn"
-       onclick="selectBtn(this,'');return false;">
+    <a href="#" class="rect-btn"
+       onclick="selectBtn(this,'group4');return false;">
       Btn 4
     </a>
 
   </div>
 
-  <!-- SHOW ONLY FOR BUTTON1 -->
-  <div class="circle-grid" id="button1Content">
+  <!-- BUTTON 1 ICONS -->
+  <div class="circle-grid" id="group1">
 
     <a href="#" class="circle-item">
-      <div class="circle">
-        <img src="Icon1.png">
-      </div>
+      <div class="circle"><img src="Icon1.png"></div>
       <span>Icon 1</span>
     </a>
 
     <a href="#" class="circle-item">
-      <div class="circle">
-        <img src="Icon2.png">
-      </div>
+      <div class="circle"><img src="Icon2.png"></div>
       <span>Icon 2</span>
     </a>
 
     <a href="#" class="circle-item">
-      <div class="circle">
-        <img src="Icon3.png">
-      </div>
+      <div class="circle"><img src="Icon3.png"></div>
       <span>Icon 3</span>
-      </a>
+    </a>
 
     <a href="#" class="circle-item">
-      <div class="circle">
-        <img src="Icon4.png">
-      </div>
+      <div class="circle"><img src="Icon4.png"></div>
       <span>Icon 4</span>
+    </a>
+
+  </div>
+
+  <!-- BUTTON 2 ICONS -->
+  <div class="circle-grid" id="group2">
+
+    <a href="#" class="circle-item">
+      <div class="circle"><img src="Icon5.png"></div>
+      <span>Icon 5</span>
+    </a>
+
+    <a href="#" class="circle-item">
+      <div class="circle"><img src="Icon6.png"></div>
+      <span>Icon 6</span>
+    </a>
+
+    <a href="#" class="circle-item">
+      <div class="circle"><img src="Icon7.png"></div>
+      <span>Icon 7</span>
+    </a>
+
+    <a href="#" class="circle-item">
+      <div class="circle"><img src="Icon8.png"></div>
+      <span>Icon 8</span>
+    </a>
+
+  </div>
+
+  <!-- BUTTON 3 ICONS -->
+  <div class="circle-grid" id="group3">
+
+    <a href="#" class="circle-item">
+      <div class="circle"><img src="Icon9.png"></div>
+      <span>Icon 9</span>
+    </a>
+
+    <a href="#" class="circle-item">
+      <div class="circle"><img src="Icon10.png"></div>
+      <span>Icon 10</span>
+    </a>
+
+    <a href="#" class="circle-item">
+      <div class="circle"><img src="Icon11.png"></div>
+      <span>Icon 11</span>
+    </a>
+
+    <a href="#" class="circle-item">
+      <div class="circle"><img src="Icon12.png"></div>
+      <span>Icon 12</span>
+    </a>
+
+  </div>
+
+  <!-- BUTTON 4 ICONS -->
+  <div class="circle-grid" id="group4">
+
+    <a href="#" class="circle-item">
+      <div class="circle"><img src="Icon13.png"></div>
+      <span>Icon 13</span>
+    </a>
+
+    <a href="#" class="circle-item">
+      <div class="circle"><img src="Icon14.png"></div>
+      <span>Icon 14</span>
+    </a>
+
+    <a href="#" class="circle-item">
+      <div class="circle"><img src="Icon15.png"></div>
+      <span>Icon 15</span>
+    </a>
+
+    <a href="#" class="circle-item">
+      <div class="circle"><img src="Icon16.png"></div>
+      <span>Icon 16</span>
     </a>
 
   </div>
@@ -263,24 +322,26 @@ body{
 </div>
 
 <script>
-function selectBtn(btn, contentId){
+function selectBtn(btn, groupId){
 
+  // Change selected button
   document.querySelectorAll('.rect-btn').forEach(function(item){
     item.classList.remove('active');
   });
-
   btn.classList.add('active');
 
-  document.getElementById('button1Content').style.display = 'none';
+  // Hide all icon groups
+  document.querySelectorAll('.circle-grid').forEach(function(group){
+    group.style.display = 'none';
+  });
 
-  if(contentId){
-    document.getElementById(contentId).style.display = 'grid';
-  }
+  // Show selected group
+  document.getElementById(groupId).style.display = 'grid';
 }
 
-/* Page load */
+// Show Button1 icons on page load
 window.onload = function(){
-  document.getElementById('button1Content').style.display = 'grid';
+  document.getElementById('group1').style.display = 'grid';
 };
 </script>
 
