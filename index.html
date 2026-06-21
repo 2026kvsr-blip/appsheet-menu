@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+      
 <meta charset="UTF-8">
 <meta name="viewport"
       content="width=device-width,initial-scale=1">
@@ -163,9 +163,12 @@ body{
 
 .active{
   background:#5f84e8;
-  color:#fff !important;
 }
 
+.active span,
+.active div{
+  color:#fff !important;
+}
 /* =====================
    HOME MESSAGE
 ===================== */
@@ -276,7 +279,12 @@ body{
   display:block;
   margin:auto auto 4px;
 }
-
+/* Optional Touch Effect */
+.rect-btn:active,
+.nav-btn:active,
+.circle-item:active{
+  transform:scale(0.96);
+}
 </style>
 
 </head>
@@ -326,7 +334,7 @@ body{
 
   <div class="rect-row">
 
-  <a href="#" class="rect-btn active"
+  <a href="#" class="rect-btn"
      onclick="showGroup('g1',this)">
     <img src="Expenses3.png">
     <span>Expenses</span>
@@ -696,15 +704,13 @@ function showExit(){
    DEFAULT HOME
 ========================= */
 
-window.onload =
-function(){
+window.onload = function(){
+
+  hideGroups();
 
   document
-    .getElementById(
-      'homeMessage'
-    )
-    .style.display =
-      'block';
+    .getElementById('homeMessage')
+    .style.display = 'block';
 
 };
 
