@@ -184,22 +184,22 @@ body{
 }
   .circle-grid{
   display:none;
-  grid-template-columns:repeat(2,120px);
+  grid-template-columns:repeat(2,110px);
   justify-content:center;
-  gap:35px;
+  justify-items:center;
+  align-items:center;
+  gap:35px 40px;
   width:100%;
   margin-top:30px;
 }
 
 .circle-item{
-  text-decoration:none;
-  color:#222;
+  width:110px;
   text-align:center;
   display:flex;
   flex-direction:column;
   align-items:center;
 }
-
 .circle-item span{
   display:block;
   margin-top:12px;
@@ -331,6 +331,7 @@ body{
        onclick="showGroup('g4',this)">
        Loans
     </a>
+        </div>
 <!-- HOME MESSAGE -->
 
 <div id="homeMessage"
@@ -391,7 +392,6 @@ body{
   <p>
     Protect important data with secure access features.
   </p>
-</div>
 </div>
 
 <!-- CIRCULAR BUTTON GROUPS -->
