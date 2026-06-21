@@ -131,13 +131,31 @@ body{
 }
 
 .rect-btn{
-  min-width:0;
-  text-align:center;
-  font-size:13px;
-  padding:12px 5px;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  text-decoration:none;
+}
+
+.rect-btn img{
+  width:24px;
+  height:24px;
+  object-fit:contain;
+}
+      .rect-btn,
+.rect-btn:link,
+.rect-btn:visited,
+.circle-item,
+.circle-item:link,
+.circle-item:visited{
+  text-decoration:none !important;
+}
+
+.rect-btn span,
+.circle-item span{
+  text-decoration:none !important;
 }
 /* =====================
    ACTIVE BUTTON
@@ -283,7 +301,7 @@ body{
 <div id="popup"
      class="popup">
 
-  Exiting...
+  Scroll from bottom to top to close App
 
 </div>
 
@@ -308,30 +326,31 @@ body{
 
   <div class="rect-row">
 
-    <a href="#"
-       class="rect-btn"
-       onclick="showGroup('g1',this)">
-       Expenses
-    </a>
+  <a href="#" class="rect-btn active"
+     onclick="showGroup('g1',this)">
+    <img src="Expenses3.png">
+    <span>Expenses</span>
+  </a>
 
-    <a href="#"
-       class="rect-btn"
-       onclick="showGroup('g2',this)">
-       Activities
-    </a>
+  <a href="#" class="rect-btn"
+     onclick="showGroup('g2',this)">
+    <img src="Activities1.png">
+    <span>Activities</span>
+  </a>
 
-    <a href="#"
-       class="rect-btn"
-       onclick="showGroup('g3',this)">
-       Health
-    </a>
+  <a href="#" class="rect-btn"
+     onclick="showGroup('g3',this)">
+    <img src="Health6.png">
+    <span>Health</span>
+  </a>
 
-    <a href="#"
-       class="rect-btn"
-       onclick="showGroup('g4',this)">
-       Loans
-    </a>
-        </div>
+  <a href="#" class="rect-btn"
+     onclick="showGroup('g4',this)">
+    <img src="Loans.png">
+    <span>Loans</span>
+  </a>
+
+</div>
 <!-- HOME MESSAGE -->
 
 <div id="homeMessage"
