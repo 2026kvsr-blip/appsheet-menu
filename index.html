@@ -110,11 +110,11 @@ body{
 ===================== */
 
 .container{
+  width:100%;
   max-width:430px;
-  margin:auto;
+  margin:0 auto;
   padding:15px;
 }
-
 /* =====================
    TOP 4 BUTTONS
 ===================== */
@@ -127,17 +127,18 @@ body{
   padding:6px;
   border-radius:20px;
   margin-bottom:20px;
+  width:100%;
 }
 
 .rect-btn{
-  padding:12px 5px;
+  min-width:0;
   text-align:center;
-  text-decoration:none;
-  color:#222;
-  border-radius:15px;
   font-size:13px;
+  padding:12px 5px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
-
 /* =====================
    ACTIVE BUTTON
 ===================== */
@@ -152,12 +153,15 @@ body{
 ===================== */
 
 .welcome-box{
-  background:#fff;
+  display:block;
   width:100%;
+  max-width:100%;
+  background:#fff;
   padding:22px;
   border-radius:20px;
   box-shadow:0 2px 12px rgba(0,0,0,0.08);
   line-height:1.8;
+  overflow-wrap:break-word;
 }
 .welcome-box h2{
   text-align:center;
@@ -180,22 +184,30 @@ body{
 }
   .circle-grid{
   display:none;
-  grid-template-columns:repeat(2,1fr);
-  gap:35px 25px;
+  grid-template-columns:repeat(2,120px);
+  justify-content:center;
+  gap:35px;
   width:100%;
   margin-top:30px;
-  justify-items:center;
-  align-items:center;
 }
 
 .circle-item{
   text-decoration:none;
   color:#222;
   text-align:center;
-  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
-.circle{
+.circle-item span{
+  display:block;
+  margin-top:12px;
+  width:120px;
+  text-align:center;
+  font-size:14px;
+  font-weight:500;
+}.circle{
   width:100px;
   height:100px;
   background:#dce7ff;
@@ -213,13 +225,7 @@ body{
   object-fit:contain;
 }
 
-.circle-item span{
-  display:block;
-  margin-top:12px;
-  font-size:14px;
-  font-weight:500;
-  color:#333;
-}
+
 /* =====================
    BOTTOM NAVIGATION
 ===================== */
@@ -652,27 +658,20 @@ function showExit(){
 
   document
     .getElementById('menu')
-    .classList.remove(
-      'open'
-    );
+    .classList.remove('open');
 
   const p =
-    document.getElementById(
-      'popup'
-    );
+    document.getElementById('popup');
 
-  p.style.display =
-    'block';
+  p.innerHTML =
+    'Scroll from bottom to top to close the App';
+
+  p.style.display = 'block';
 
   setTimeout(function(){
-
-    p.style.display =
-      'none';
-
-  },2000);
-
+    p.style.display = 'none';
+  },3000);
 }
-
 
 /* =========================
    DEFAULT HOME
