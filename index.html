@@ -13,7 +13,6 @@
 *{
   box-sizing:border-box;
 }
-
 body{
   margin:0;
   font-family:Arial,sans-serif;
@@ -186,6 +185,7 @@ background:#5f84e8;
   line-height:1.8;
   overflow-wrap:break-word;
 }
+
 .welcome-box h2{
   text-align:center;
   color:#5f84e8;
@@ -365,7 +365,102 @@ background:#5f84e8;
 
 <div id="homeMessage"
      class="welcome-box">
+<div id="homeMessage" class="welcome-box">
 
+  <!-- Language Dropdown -->
+  <div style="margin-bottom:20px;text-align:center;">
+
+    <select id="langSelect"
+            onchange="changeLanguage()"
+            style="
+              padding:10px 15px;
+              border-radius:15px;
+              border:1px solid #c4d4ff;
+              background:#dce7ff;
+              font-size:16px;
+            ">
+
+      <option value="en">English</option>
+      <option value="te">తెలుగు</option>
+      <option value="hi">हिन्दी</option>
+      <option value="ta">தமிழ்</option>
+      <option value="kn">ಕನ್ನಡ</option>
+      <option value="ml">മലയാളം</option>
+
+    </select>
+
+  </div>
+
+  <h2 id="welcomeTitle">
+    Welcome to KaniS Smart Manager
+  </h2>
+
+  <div id="welcomeContent">
+
+    <p><strong>Track your :</strong></p>
+
+    <p>
+      ...Income<br>
+      ...Expenses<br>
+      ...Activities<br>
+      ...Loans<br>
+      ...Health<br>
+      ...Family
+    </p>
+
+    <h3>💰 Expenses Management</h3>
+
+    <p>
+      Track your daily expenses and monitor spendings easily.
+    </p>
+
+    <ul>
+      <li>Add income and expenses</li>
+      <li>View weekly and monthly reports</li>
+      <li>Manage categories</li>
+      <li>Track sensitive expenses</li>
+    </ul>
+
+    <h3>🏦 Loan Management</h3>
+
+    <p>
+      Manage loans, payments, and balances efficiently.
+    </p>
+
+    <ul>
+      <li>Add loan details</li>
+      <li>Track payment history</li>
+      <li>Monitor pending balances</li>
+      <li>Generate reports</li>
+    </ul>
+
+    <h3>📋 Activities & Tasks Management</h3>
+
+    <ul>
+      <li>Create tasks</li>
+      <li>Track deadlines</li>
+      <li>Birthday reminders</li>
+      <li>Daily activity management</li>
+    </ul>
+
+    <h3>📊 Reports & Dashboard</h3>
+
+    <p>
+      View complete financial summaries and activity reports.
+    </p>
+
+    <h3>🔒 Privacy & Security</h3>
+
+    <p>
+      Protect important data with secure access features.
+    </p>
+
+  </div>
+
+</div>
+</div>
+
+      
   <h2>Welcome to FaMiLeOne</h2>
 
   <p>Track your :</p>
@@ -715,7 +810,18 @@ window.onload = function(){
     .style.display = 'block';
 
 };
+function changeLanguage(){
 
+  const lang =
+    document.getElementById('langSelect').value;
+
+  if(lang === 'en'){
+    document.getElementById('welcomeTitle').innerHTML =
+      'Welcome to KaniS Smart Manager';
+  }
+
+  // మిగతా languages translations తరువాత add చేయవచ్చు
+}
 </script>
 
 </body>
