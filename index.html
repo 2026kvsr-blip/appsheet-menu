@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport"
       content="width=device-width,initial-scale=1">
@@ -291,9 +290,9 @@ background:#5f84e8;
 .circle-item:active{
   transform:scale(0.96);
 }
-   .language-box{
+  .language-box{
   width:100%;
-  display:flex;
+  display:none;
   justify-content:center;
   align-items:center;
   margin:15px 0;
@@ -386,7 +385,7 @@ background:#5f84e8;
 </div>
       <!-- Language Dropdown -->
 <!-- Language Dropdown -->
-<div class="language-box">
+<div id="languageSection" class="language-box">
 
   <label for="langSelect"
          style="
@@ -587,16 +586,17 @@ function hideGroups(){
   document
     .querySelectorAll('.circle-grid')
     .forEach(function(g){
-
       g.style.display = 'none';
-
     });
 
   document
     .getElementById('homeMessage')
     .style.display = 'none';
-}
 
+  document
+    .getElementById('languageSection')
+    .style.display = 'none';
+}
 
 /* =========================
    REMOVE ACTIVE
@@ -627,20 +627,18 @@ function showHome(btn){
 
   clearActive();
 
-  btn.classList.add(
-    'active'
-  );
+  btn.classList.add('active');
 
   hideGroups();
 
   document
-    .getElementById(
-      'homeMessage'
-    )
+    .getElementById('languageSection')
+    .style.display = 'flex';
+
+  document
+    .getElementById('homeMessage')
     .style.display = 'block';
-
 }
-
 
 /* =========================
    SHOW GROUP
@@ -713,12 +711,12 @@ window.onload = function(){
   hideGroups();
 
   document
-    .getElementById('homeMessage')
-    .style.display = 'block';
+    .getElementById('languageSection')
+    .style.display = 'flex';
 
   document
-    .querySelector('.nav-btn')
-    .classList.add('active');
+    .getElementById('homeMessage')
+    .style.display = 'block';
 
   changeLanguage();
 };
