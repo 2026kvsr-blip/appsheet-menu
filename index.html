@@ -10,6 +10,7 @@
 
 <style>
 
+      
 *{
   box-sizing:border-box;
 }
@@ -291,9 +292,11 @@ background:#5f84e8;
 .circle-item:active{
   transform:scale(0.96);
 }
-      .language-box{
+   .language-box{
   width:100%;
-  text-align:center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   margin:15px 0;
 }
 
@@ -386,13 +389,11 @@ background:#5f84e8;
 <!-- Language Dropdown -->
 <div class="language-box">
 
-  <div class="language-box">
-
   <label for="langSelect"
-         style="display:block;
-                margin-bottom:8px;
-                font-weight:600;
-                color:#5f84e8;">
+         style="
+         font-weight:600;
+         color:#5f84e8;
+         margin-right:10px;">
     Select Language
   </label>
 
