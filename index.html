@@ -287,6 +287,29 @@ background:#5f84e8;
 .circle-item:active{
   transform:scale(0.96);
 }
+      .language-box{
+  width:100%;
+  text-align:center;
+  margin:15px 0;
+}
+
+#langSelect{
+  width:180px;
+  height:38px;          /* height తక్కువ */
+  padding:5px 12px;
+  border:1px solid #c4d4ff;
+  border-radius:12px;
+  background:#ffffff;
+  font-size:15px;
+  outline:none;
+}
+
+.welcome-box{
+  background:#ffffff;
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
 </style>
 
 </head>
@@ -359,15 +382,7 @@ background:#5f84e8;
     <img src="Loans.png">
     <span>Loans</span>
   </a>
-
-</div>
-<!-- HOME MESSAGE -->
-
-<div id="homeMessage"
-     class="welcome-box">
-<div id="homeMessage" class="welcome-box">
-
-  <!-- Language Dropdown -->
+<!-- Language Dropdown -->
   <div style="margin-bottom:20px;text-align:center;">
 
     <select id="langSelect"
@@ -391,6 +406,14 @@ background:#5f84e8;
 
   </div>
 
+</div>
+<!-- HOME MESSAGE -->
+
+<div id="homeMessage"
+     class="welcome-box">
+<div id="homeMessage" class="welcome-box">
+
+  
   <h2 id="welcomeTitle">
     Welcome to KaniS Smart Manager
   </h2>
