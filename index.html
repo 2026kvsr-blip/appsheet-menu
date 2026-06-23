@@ -6,7 +6,6 @@
       content="width=device-width,initial-scale=1">
 
 <title>FaMiLeOne</title>
-
 <style>
       
 *{
@@ -572,31 +571,23 @@ const data = {
 
 for(const id in data){
 
-  const box =
-      document.getElementById(id);
+  const box = document.getElementById(id);
 
-  data[id].forEach(function(text){
+  data[id].forEach(function(item){
 
-    box.innerHTML +=
+    box.innerHTML += `
+      <a href="#" class="circle-item">
 
-      `<a href="#"
-          class="circle-item">
+        <div class="circle">
+          <img src="${item.img}">
+        </div>
 
-          <div class="circle">
+        <span>${item.text}</span>
 
-            <img src="Icon1.png">
-
-          </div>
-
-          <span>${text}</span>
-
-      </a>`;
-
+      </a>
+    `;
   });
-
 }
-
-
 /* =========================
    HIDE ALL GROUPS
 ========================= */
