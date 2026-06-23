@@ -383,165 +383,38 @@ background:#5f84e8;
 
 </div>
       <!-- Language Dropdown -->
-  <div style="margin-bottom:20px;text-align:center;">
+<!-- Language Dropdown -->
+<div class="language-box">
 
-    <select id="langSelect"
-            onchange="changeLanguage()"
-            style="
-              padding:10px 15px;
-              border-radius:15px;
-              border:1px solid #c4d4ff;
-              background:#dce7ff;
-              font-size:16px;
-            ">
+  <select id="langSelect"
+          onchange="changeLanguage()">
 
-      <option value="en">English</option>
-      <option value="te">తెలుగు</option>
-      <option value="hi">हिन्दी</option>
-      <option value="ta">தமிழ்</option>
-      <option value="kn">ಕನ್ನಡ</option>
-      <option value="ml">മലയാളം</option>
+    <option value="en">English</option>
+    <option value="te">తెలుగు</option>
+    <option value="hi">हिन्दी</option>
+    <option value="ta">தமிழ்</option>
+    <option value="kn">ಕನ್ನಡ</option>
+    <option value="ml">മലയാളം</option>
 
-    </select>
+  </select>
 
-  </div>
-
+</div>
 <!-- HOME MESSAGE -->
 
-<div id="homeMessage"
-     class="welcome-box">
+
+  <!-- HOME MESSAGE -->
 <div id="homeMessage" class="welcome-box">
 
-  
   <h2 id="welcomeTitle">
     Welcome to oneFaMiLe
   </h2>
 
   <div id="welcomeContent">
-
-    <p><strong>Track your :</strong></p>
-
-    <p>
-      ...Income<br>
-      ...Expenses<br>
-      ...Activities<br>
-      ...Loans<br>
-      ...Health<br>
-      ...Family
-    </p>
-
-    <h3>💰 Expenses Management</h3>
-
-    <p>
-      Track your daily expenses and monitor spendings easily.
-    </p>
-
-    <ul>
-      <li>Add income and expenses</li>
-      <li>View weekly and monthly reports</li>
-      <li>Manage categories</li>
-      <li>Track sensitive expenses</li>
-    </ul>
-
-    <h3>🏦 Loan Management</h3>
-
-    <p>
-      Manage loans, payments, and balances efficiently.
-    </p>
-
-    <ul>
-      <li>Add loan details</li>
-      <li>Track payment history</li>
-      <li>Monitor pending balances</li>
-      <li>Generate reports</li>
-    </ul>
-
-    <h3>📋 Activities & Tasks Management</h3>
-
-    <ul>
-      <li>Create tasks</li>
-      <li>Track deadlines</li>
-      <li>Birthday reminders</li>
-      <li>Daily activity management</li>
-    </ul>
-
-    <h3>📊 Reports & Dashboard</h3>
-
-    <p>
-      View complete financial summaries and activity reports.
-    </p>
-
-    <h3>🔒 Privacy & Security</h3>
-
-    <p>
-      Protect important data with secure access features.
-    </p>
-
   </div>
 
-</div>
-</div>
-
-      
-  <h2>Welcome to FaMiLeOne</h2>
-
-  <p>Track your :</p>
-
-  <p>
-    ...Income<br>
-    ...Expenses<br>
-    ...Activities<br>
-    ...Loans<br>
-    ...Health<br>
-    ...Family
-  </p>
-
-  <h3>💰 Expenses Management</h3>
-
-  <p>
-    Track your daily expenses and monitor spendings easily.
-  </p>
-
-  <ul>
-    <li>Add income and expenses</li>
-    <li>View weekly and monthly reports</li>
-    <li>Manage categories</li>
-    <li>Track sensitive expenses</li>
-  </ul>
-
-  <h3>🏦 Loan Management</h3>
-
-  <ul>
-    <li>Add loan details</li>
-    <li>Track payment history</li>
-    <li>Monitor pending balances</li>
-    <li>Generate reports</li>
-  </ul>
-
-  <h3>📋 Activities & Tasks Management</h3>
-
-  <ul>
-    <li>Create tasks</li>
-    <li>Track deadlines</li>
-    <li>Birthday reminders</li>
-    <li>Daily activity management</li>
-  </ul>
-
-  <h3>📊 Reports & Dashboard</h3>
-
-  <p>
-    View complete financial summaries and activity reports.
-  </p>
-
-  <h3>🔒 Privacy & Security</h3>
-
-  <p>
-    Protect important data with secure access features.
-  </p>
-</div>
+</div>   <!-- homeMessage close -->
 
 <!-- CIRCULAR BUTTON GROUPS -->
-
 <div id="g1" class="circle-grid"></div>
 <div id="g2" class="circle-grid"></div>
 <div id="g3" class="circle-grid"></div>
@@ -550,7 +423,8 @@ background:#5f84e8;
 <div id="g7" class="circle-grid"></div>
 <div id="g8" class="circle-grid"></div>
 <div id="g9" class="circle-grid"></div>
-  </div>
+
+</div>   <!-- container close -->
   <!-- ======================
      BOTTOM NAVIGATION
 ====================== -->
@@ -831,6 +705,7 @@ window.onload = function(){
     .getElementById('homeMessage')
     .style.display = 'block';
 
+  changeLanguage();
 };
 function changeLanguage(){
 
@@ -838,10 +713,103 @@ function changeLanguage(){
     document.getElementById('langSelect').value;
 
   if(lang === 'en'){
-    document.getElementById('welcomeTitle').innerHTML =
+
+    document.getElementById(
+      'welcomeTitle'
+    ).innerHTML =
       'Welcome to KaniS Smart Manager';
+
+    document.getElementById(
+      'welcomeContent'
+    ).innerHTML = `
+
+      <p><strong>You can Track your :</strong></p>
+
+      <p>
+        ...Income<br>
+        ...Expenses<br>
+        ...Activities<br>
+        ...Loans<br>
+        ...Health<br>
+        ...Family
+      </p>
+
+      <h3>💰 Expenses Management</h3>
+
+      <p>
+        Track your daily expenses and monitor spendings easily.
+      </p>
+
+      <ul>
+        <li>Add income and expenses</li>
+        <li>View weekly and monthly reports</li>
+        <li>Manage categories</li>
+        <li>Track sensitive expenses</li>
+      </ul>
+
+      <h3>🏦 Loan Management</h3>
+
+      <p>
+        Manage loans, payments, and balances efficiently.
+      </p>
+
+      <ul>
+        <li>Add loan details</li>
+        <li>Track payment history</li>
+        <li>Monitor pending balances</li>
+        <li>Generate reports</li>
+      </ul>
+
+      <h3>📋 Activities & Tasks Management</h3>
+
+      <ul>
+        <li>Create tasks</li>
+        <li>Track deadlines</li>
+        <li>Birthday reminders</li>
+        <li>Daily activity management</li>
+      </ul>
+
+      <h3>📊 Reports & Dashboard</h3>
+
+      <p>
+        View complete financial summaries and activity reports.
+      </p>
+
+      <h3>🔒 Privacy & Security</h3>
+
+      <p>
+        Protect important data with secure access features.
+      </p>
+
+    `;
   }
 
+  else if(lang === 'te'){
+
+    document.getElementById(
+      'welcomeTitle'
+    ).innerHTML =
+      'కనిస్ స్మార్ట్ మేనేజర్‌కు స్వాగతం';
+
+    document.getElementById(
+      'welcomeContent'
+    ).innerHTML = `
+
+      <p><strong>మీరు ట్రాక్ చేయగల అంశాలు :</strong></p>
+
+      <p>
+        ...ఆదాయం<br>
+        ...ఖర్చులు<br>
+        ...కార్యకలాపాలు<br>
+        ...రుణాలు<br>
+        ...ఆరోగ్యం<br>
+        ...కుటుంబం
+      </p>
+
+    `;
+  }
+
+}
   // మిగతా languages translations తరువాత add చేయవచ్చు
 }
 </script>
