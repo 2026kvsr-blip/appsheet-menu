@@ -9,7 +9,6 @@
   *{
   box-sizing:border-box;
 }
-
  body{
   margin:0;
   font-family:Arial,sans-serif;
@@ -116,7 +115,7 @@
 
 .rect-row{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(6,1fr);
   gap:3px;
   background:#dce7ff;
   padding:3px;
@@ -424,6 +423,19 @@ background:#5f84e8;
     <img src="Loans.png">
     <span>Loans</span>
   </a>
+<!-- IKKADA ADD CHEYYALI -->
+
+  <a href="#" class="rect-btn"
+     onclick="showGroup('g5',this)">
+    <img src="Memories.png">
+    <span>Memories</span>
+  </a>
+
+  <a href="#" class="rect-btn"
+     onclick="showGroup('g10',this)">
+    <img src="Income.png">
+    <span>Income</span>
+  </a>
 
 </div>
       <!-- Language Dropdown -->
@@ -477,7 +489,8 @@ background:#5f84e8;
 <div id="g7" class="circle-grid"></div>
 <div id="g8" class="circle-grid"></div>
 <div id="g9" class="circle-grid"></div>
-
+<div id="g5" class="circle-grid"></div>
+<div id="g10" class="circle-grid"></div>
 </div>   <!-- container close -->
   <!-- ======================
      BOTTOM NAVIGATION
@@ -538,8 +551,8 @@ const data = {
     {text:"About", img:"About1.png"}  ],
 
   g2:[
-     {text:"Add New Activity", img:"AddActivity1.png"},
-        {text:"Reports", img:"Reports1.png"},
+    {text:"Add New Activity", img:"AddActivity1.png"},
+    {text:"Reports", img:"Reports1.png"},
     {text:"Custom Search", img:"CustomSearch1.png"},
     {text:"About", img:"About1.png"}  ],
 
@@ -592,9 +605,21 @@ const data = {
     {text:"Income Reports", img:"IncomeReports1.png"},
     {text:"Payments Reports", img:"PaymentsReports1.png"},
     {text:"Health Reports", img:"MedicalReports1.png"},
-       
+  
+  ],
+ g5:[
+{text:"Add New Memory", img:"AddMemories1.png"},
+    {text:"Reports", img:"Reports1.png"},
+    {text:"Custom Search", img:"CustomSearch1.png"},
+    {text:"About", img:"About1.png"}
+],
 
-  ]
+g10:[
+  {text:"Add New Income", img:"AddIncome1.png"},
+    {text:"Reports", img:"Reports1.png"},
+    {text:"Custom Search", img:"CustomSearch1.png"},
+    {text:"About", img:"About1.png"}
+]
 
 };
 
