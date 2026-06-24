@@ -9,6 +9,7 @@
   *{
   box-sizing:border-box;
 }
+ 
 body{
   margin:0;
   font-family:Arial,sans-serif;
@@ -220,7 +221,38 @@ background:#5f84e8;
   width:100%;
   margin-top:30px;
 }
+/* Charts & Reports - 7 buttons layout */
+#g8,
+#g9{
+  grid-template-columns:repeat(3,90px);
+  justify-content:center;
+  justify-items:center;
+  gap:30px 20px;
+}
 
+#g8 .circle-item,
+#g9 .circle-item{
+  width:90px;
+}
+
+#g8 .circle,
+#g9 .circle{
+  width:80px;
+  height:80px;
+}
+
+#g8 .circle img,
+#g9 .circle img{
+  width:40px;
+  height:40px;
+}
+
+#g8 .circle-item span,
+#g9 .circle-item span{
+  width:90px;
+  font-size:12px;
+  text-align:center;
+}
 .circle-item{
   width:110px;
   text-align:center;
