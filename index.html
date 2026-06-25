@@ -9,6 +9,7 @@
   *{
   box-sizing:border-box;
 }
+ 
   body{
   margin:0;
   font-family:Arial,sans-serif;
@@ -220,6 +221,27 @@ background:#5f84e8;
   width:100%;
   margin-top:30px;
 }
+.loan-tabs{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:10px;
+}
+
+.loan-tab-btn{
+  padding:8px 18px;
+  border:1px solid #c4d4ff;
+  border-radius:12px;
+  background:#dce7ff;
+  color:#000;
+  font-size:14px;
+  cursor:pointer;
+}
+
+
+
+
+ 
 /* Charts & Reports - 7 buttons layout */
 #g8,
 #g9{
@@ -478,13 +500,13 @@ background:#5f84e8;
 <div id="g2" class="circle-grid"></div>
 <div id="g3" class="circle-grid"></div>
 <div id="g4" class="circle-grid"></div>
+ <div id="g11" class="circle-grid"></div>
 <div id="g6" class="circle-grid"></div>
 <div id="g7" class="circle-grid"></div>
 <div id="g8" class="circle-grid"></div>
 <div id="g9" class="circle-grid"></div>
-<div id="g5" class="circle-grid"></div>
 <div id="g10" class="circle-grid"></div>
- <div id="g11" class="circle-grid"></div>
+ 
 </div>   <!-- container close -->
   <!-- ======================
      BOTTOM NAVIGATION
@@ -659,6 +681,25 @@ for(const id in data){
     `;
   });
 }
+document.getElementById("g4").innerHTML = `
+
+<div class="loan-tabs">
+
+  <button class="loan-tab-btn"
+          onclick="showGroup('g11',this)">
+    Loans
+  </button>
+
+  <button class="loan-tab-btn"
+          onclick="showGroup('g7',this)">
+    Payments
+  </button>
+
+</div>
+
+`;
+
+ 
  /* Loan Menu */
 
 document.getElementById("g4").innerHTML = `
