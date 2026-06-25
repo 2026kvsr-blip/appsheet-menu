@@ -226,19 +226,24 @@ background:#5f84e8;
   display:flex;
   justify-content:center;
   gap:12px;
-  margin-top:15px;
+  margin-top:10px;
+  margin-bottom:15px;
 }
 
 .loan-tab-btn{
   min-width:120px;
-  height:42px;
+  height:40px;
   border:none;
   border-radius:12px;
   background:#dce7ff;
+  color:#000;
   font-size:14px;
   cursor:pointer;
 }
 
+.loan-tab-btn:hover{
+  background:#cfdcff;
+}
 
 
 
@@ -498,18 +503,18 @@ background:#5f84e8;
 </div>   <!-- homeMessage close -->
 
 <!-- CIRCULAR BUTTON GROUPS -->
+<!-- CIRCULAR BUTTON GROUPS -->
 <div id="g1" class="circle-grid"></div>
 <div id="g2" class="circle-grid"></div>
 <div id="g3" class="circle-grid"></div>
 <div id="g4" class="circle-grid"></div>
- <div id="g10" class="circle-grid"></div>
- <div id="g11" class="circle-grid"></div>
+<div id="g11" class="circle-grid"></div>  <!-- Loan buttons -->
+<div id="g7" class="circle-grid"></div>   <!-- Payment buttons -->
+<div id="g5" class="circle-grid"></div>
 <div id="g6" class="circle-grid"></div>
-<div id="g7" class="circle-grid"></div>
 <div id="g8" class="circle-grid"></div>
 <div id="g9" class="circle-grid"></div>
-<div id="g5" class="circle-grid"></div>
- 
+<div id="g10" class="circle-grid"></div>
 </div>   <!-- container close -->
   <!-- ======================
      BOTTOM NAVIGATION
@@ -686,22 +691,24 @@ for(const id in data){
   });
 }
 document.getElementById("g4").innerHTML = `
+
 <div class="loan-tabs">
 
   <button class="loan-tab-btn"
-          onclick="showGroup('g11',this)">
-      Loans
+          onclick="showLoanSection('g11')">
+    Loans
   </button>
 
   <button class="loan-tab-btn"
-          onclick="showGroup('g7',this)">
-      Payments
+          onclick="showLoanSection('g7')">
+    Payments
   </button>
 
 </div>
-`;
- 
- /* Loan Menu */
+
+<div id="loanContent"></div>
+
+`; /* Loan Menu */
 
 document.getElementById("g4").innerHTML = `
 
@@ -816,7 +823,18 @@ function showGroup(
 
 }
 
+function showLoanSection(id){
 
+  const source =
+    document.getElementById(id);
+
+  const target =
+    document.getElementById("loanContent");
+
+  target.innerHTML = source.innerHTML;
+  target.style.display = "grid";
+} 
+ 
 /* =========================
    OPEN SIDE MENU
 ========================= */
