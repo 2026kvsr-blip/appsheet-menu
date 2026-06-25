@@ -9,7 +9,6 @@
   *{
   box-sizing:border-box;
 }
-
   body{
   margin:0;
   font-family:Arial,sans-serif;
@@ -492,6 +491,7 @@ background:#5f84e8;
 <div id="g9" class="circle-grid"></div>
 <div id="g5" class="circle-grid"></div>
 <div id="g10" class="circle-grid"></div>
+ <div id="g11" class="circle-grid"></div>
 </div>   <!-- container close -->
   <!-- ======================
      BOTTOM NAVIGATION
@@ -513,13 +513,7 @@ background:#5f84e8;
     <div>FamilyTree</div>
   </a>
 
-  <a href="#"
-     class="nav-btn"
-     onclick="showGroup('g7',this);return false;">
-    <img src="Payments1.png">
-    <div>Payments</div>
-  </a>
-
+ 
   <a href="#"
      class="nav-btn"
      onclick="showGroup('g8',this);return false;">
@@ -527,6 +521,13 @@ background:#5f84e8;
     <div>Charts</div>
   </a>
 
+<a href="#"
+     class="nav-btn"
+     onclick="showGroup('g5',this);return false;">
+    <img src="Memories.png">
+    <div>Memories</div>
+
+ 
   <a href="#"
      class="nav-btn"
      onclick="showGroup('g9',this);return false;">
@@ -571,16 +572,11 @@ const data = {
     {text:"Custom Search", img:"CustomSearch1.png"},
     {text:"About", img:"About1.png"}  ],
 
-
-  g4:[
-   {text:"Add New Loan", img:"AddLoans1.png"},
-        {text:"Reports", img:"Reports1.png"},
-   {text:"Sensitive Reports", img:"SensitiveReports1.png"},
-     {text:"All Reports", img:"All Reports1.png"},
-    {text:"Custom Search", img:"CustomSearch1.png"},
-    {text:"About", img:"About1.png"}  ],
-
-
+g4:[
+  {text:"Loans", img:"Loans1.png"},
+        {text:"Payments", img:"Payments1.png"},
+],
+ 
   g6:[
 {text:"Family", img:"Family3.png"},
 {text:"Add Member", img:"AddMember1.png"},
@@ -635,7 +631,14 @@ g10:[
      {text:"All Reports", img:"All Reports1.png"},
     {text:"Custom Search", img:"CustomSearch1.png"},
     {text:"About", img:"About1.png"}
-]
+],
+  g11:[
+   {text:"Add New Loan", img:"AddLoans1.png"},
+        {text:"Reports", img:"Reports1.png"},
+   {text:"Sensitive Reports", img:"SensitiveReports1.png"},
+     {text:"All Reports", img:"All Reports1.png"},
+    {text:"Custom Search", img:"CustomSearch1.png"},
+    {text:"About", img:"About1.png"}  ],
 
 };
 
@@ -663,6 +666,35 @@ for(const id in data){
     `;
   });
 }
+ /* Loan Menu */
+
+document.getElementById("g4").innerHTML = `
+
+<a href="#"
+   class="circle-item"
+   onclick="showGroup('g11',this);return false;">
+
+   <div class="circle">
+      <img src="Loans.png">
+   </div>
+
+   <span>Loans</span>
+
+</a>
+
+<a href="#"
+   class="circle-item"
+   onclick="showGroup('g7',this);return false;">
+
+   <div class="circle">
+      <img src="Payments12.png">
+   </div>
+
+   <span>Payments</span>
+
+</a>
+
+`;
 /* =========================
    HIDE ALL GROUPS
 ========================= */
