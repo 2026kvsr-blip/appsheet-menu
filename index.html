@@ -11,6 +11,7 @@
 }
 
  
+ 
   body{
   margin:0;
   font-family:Arial,sans-serif;
@@ -514,7 +515,6 @@ background:#5f84e8;
 <div id="g1" class="circle-grid"></div>
 <div id="g2" class="circle-grid"></div>
 <div id="g3" class="circle-grid"></div>
-<div id="g4" class="circle-grid"></div>
  <div id="g4" class="circle-grid">
 
   <div class="loan-tabs">
@@ -622,10 +622,6 @@ const data = {
     {text:"Custom Search", img:"CustomSearch1.png"},
     {text:"About", img:"About1.png"}  ],
 
-g4:[
-  {text:"Loans", img:"Loans1.png"},
-        {text:"Payments", img:"Payments1.png"},
-],
  
   g6:[
 {text:"Family", img:"Family3.png"},
@@ -701,22 +697,22 @@ for(const id in data){
 
   const box = document.getElementById(id);
 
+  if(!box) continue;
+
   data[id].forEach(function(item){
 
     box.innerHTML += `
       <a href="#" class="circle-item">
-
         <div class="circle">
           <img src="${item.img}">
         </div>
-
         <span>${item.text}</span>
-
       </a>
     `;
+
   });
 }
-document.getElementById("g4").innerHTML =
+document.getElementById("g4").innerHTML = `
 
 <div class="loan-tabs">
 
@@ -734,10 +730,11 @@ document.getElementById("g4").innerHTML =
 
 <div id="loanContent"></div>
 
-`; /* Loan Menu */
+`;
+ /* Loan Menu */
 
 
-`
+
 /* =========================
    HIDE ALL GROUPS
 ========================= */
