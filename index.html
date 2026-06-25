@@ -9,7 +9,6 @@
   *{
   box-sizing:border-box;
 }
-
  
   body{
   margin:0;
@@ -122,7 +121,7 @@
   background:#dce7ff;
   padding:6px;
   border-radius:20px;
-  margin-bottom:20px;
+  margin-bottom:8px;   /* 20px nundi 8px */
   width:100%;
 }
 
@@ -230,8 +229,8 @@ background:#5f84e8;
 }
 
 .loan-tab-btn{
-  width:100px;      /* 140px nundi */
-  height:40px;      /* 55px nundi */
+  width:85px;      /* 140px nundi */
+  height:35px;      /* 55px nundi */
   border:none;
   border-radius:10px;
   background:#dce7ff;
@@ -240,12 +239,12 @@ background:#5f84e8;
   justify-content:center;
   gap:5px;
   cursor:pointer;
-  font-size:12px;
+  font-size:11px;
 }
 
 .loan-tab-btn img{
-  width:18px;
-  height:18px;
+  width:16px;
+  height:16px;
 }
 .loan-tab-btn:hover{
   background:#cfdcff;
@@ -392,7 +391,7 @@ background:#5f84e8;
 #g4{
   display:none;
   width:100%;
-  margin-top:-10px;
+  margin-top:0px;      /* -10px remove */
 }
 #loanContent{
   display:grid;
@@ -729,25 +728,7 @@ for(const id in data){
 
   });
 }
-document.getElementById("g4").innerHTML = `
-
-<div class="loan-tabs">
-
-  <button class="loan-tab-btn"
-          onclick="showLoanSection('g11')">
-    Loans
-  </button>
-
-  <button class="loan-tab-btn"
-          onclick="showLoanSection('g7')">
-    Payments
-  </button>
-
-</div>
-
-<div id="loanContent"></div>
-
-`;
+;
  /* Loan Menu */
 
 
@@ -758,21 +739,17 @@ document.getElementById("g4").innerHTML = `
 
 function hideGroups(){
 
-  document
-    .querySelectorAll('.circle-grid')
-    .forEach(function(g){
-      g.style.display = 'none';
-    });
+  document.querySelectorAll('.circle-grid')
+  .forEach(function(g){
+    g.style.display='none';
+  });
 
-  document
-    .getElementById('homeMessage')
-    .style.display = 'none';
+  document.getElementById('g4').style.display='none';
 
-  document
-    .getElementById('languageSection')
-    .style.display = 'none';
+  document.getElementById('homeMessage').style.display='none';
+
+  document.getElementById('languageSection').style.display='none';
 }
-
 /* =========================
    REMOVE ACTIVE
 ========================= */
@@ -853,7 +830,9 @@ function showLoanSection(id,btn){
       b.classList.remove('active');
     });
 
-  btn.classList.add('active');
+if(btn){
+   btn.classList.add('active');
+}
 
   const loanContent =
       document.getElementById("loanContent");
