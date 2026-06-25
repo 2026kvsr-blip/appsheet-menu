@@ -9,6 +9,7 @@
   *{
   box-sizing:border-box;
 }
+
  
   body{
   margin:0;
@@ -739,16 +740,24 @@ for(const id in data){
 
 function hideGroups(){
 
-  document.querySelectorAll('.circle-grid')
-  .forEach(function(g){
-    g.style.display='none';
-  });
+  document
+    .querySelectorAll('.circle-grid')
+    .forEach(function(g){
+      g.style.display = 'none';
+    });
 
-  document.getElementById('g4').style.display='none';
+  // Loan Container Hide
+  document
+    .getElementById('g4')
+    .style.display = 'none';
 
-  document.getElementById('homeMessage').style.display='none';
+  document
+    .getElementById('homeMessage')
+    .style.display = 'none';
 
-  document.getElementById('languageSection').style.display='none';
+  document
+    .getElementById('languageSection')
+    .style.display = 'none';
 }
 /* =========================
    REMOVE ACTIVE
