@@ -9,7 +9,6 @@
   *{
   box-sizing:border-box;
 }
-
  
   body{
   margin:0;
@@ -224,27 +223,28 @@ background:#5f84e8;
 .loan-tabs{
   display:flex;
   justify-content:center;
-  gap:12px;
-  margin:15px 0;
+  gap:8px;
+  margin-top:2px;      /* 15px nundi */
+  margin-bottom:10px;
 }
 
 .loan-tab-btn{
-  width:140px;
-  height:55px;
+  width:100px;      /* 140px nundi */
+  height:40px;      /* 55px nundi */
   border:none;
-  border-radius:12px;
+  border-radius:10px;
   background:#dce7ff;
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:8px;
+  gap:5px;
   cursor:pointer;
-  font-size:14px;
+  font-size:12px;
 }
 
 .loan-tab-btn img{
-  width:24px;
-  height:24px;
+  width:18px;
+  height:18px;
 }
 .loan-tab-btn:hover{
   background:#cfdcff;
@@ -385,9 +385,10 @@ background:#5f84e8;
   font-size:14px;
 } 
  /* Loan Rectangle Buttons */
- #g4{
+#g4{
   display:none;
   width:100%;
+  margin-top:-10px;
 }
 #loanContent{
   display:grid;
