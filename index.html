@@ -9,6 +9,7 @@
   *{
   box-sizing:border-box;
 }
+
  
   body{
   margin:0;
@@ -249,7 +250,10 @@ background:#5f84e8;
 .loan-tab-btn:hover{
   background:#cfdcff;
 }
-
+.loan-tab-btn.active{
+  background:#5f84e8;
+  color:#fff;
+}
 
 
  
@@ -529,26 +533,23 @@ background:#5f84e8;
 
   <div class="loan-tabs">
 
-    <button class="loan-tab-btn"
-            onclick="showLoanSection('g11')">
+  <button id="loanBtn"
+          class="loan-tab-btn"
+          onclick="showLoanSection('g11',this)">
+    <img src="Loans1.png">
+    <span>Loans</span>
+  </button>
 
-      <img src="Loans1.png">
-      <span>Loans</span>
+  <button id="paymentBtn"
+          class="loan-tab-btn"
+          onclick="showLoanSection('g7',this)">
+    <img src="Payments1.png">
+    <span>Payments</span>
+  </button>
 
-    </button>
+</div>
 
-    <button class="loan-tab-btn"
-            onclick="showLoanSection('g7')">
-
-      <img src="Payments1.png">
-      <span>Payments</span>
-
-    </button>
-
-  </div>
-
-  <div id="loanContent"></div>
-
+<div id="loanContent"></div>
 </div>
 <div id="g11" class="circle-grid"></div>  <!-- Loan buttons -->
 <div id="g7" class="circle-grid"></div>   <!-- Payment buttons -->
@@ -829,19 +830,36 @@ function showGroup(id,btn){
   document.getElementById(id).style.display='block';
 
   if(id==='g4'){
-     showLoanSection('g11');
-  }
-  else{
-     document.getElementById(id).style.display='grid';
-  }
+
+   document.getElementById(id).style.display='block';
+
+   showLoanSection(
+      'g11',
+      document.getElementById('loanBtn')
+   );
+
 }
-function showLoanSection(id){
+else{
+
+   document.getElementById(id).style.display='grid';
+
+}
+}
+function showLoanSection(id,btn){
+
+  document
+    .querySelectorAll('.loan-tab-btn')
+    .forEach(function(b){
+      b.classList.remove('active');
+    });
+
+  btn.classList.add('active');
 
   const loanContent =
-    document.getElementById("loanContent");
+      document.getElementById("loanContent");
 
   loanContent.innerHTML =
-    document.getElementById(id).innerHTML;
+      document.getElementById(id).innerHTML;
 
   loanContent.style.display = "grid";
   loanContent.style.gridTemplateColumns =
