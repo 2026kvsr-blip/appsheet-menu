@@ -378,7 +378,14 @@ background:#5f84e8;
 .language-box label{
   margin-right:6px;
   font-size:14px;
-}      
+} 
+ /* Loan Rectangle Buttons */
+ #g4{
+  display:none;
+  width:100%;
+}
+
+
 </style>
 
 </head>
@@ -508,6 +515,25 @@ background:#5f84e8;
 <div id="g2" class="circle-grid"></div>
 <div id="g3" class="circle-grid"></div>
 <div id="g4" class="circle-grid"></div>
+ <div id="g4" class="circle-grid">
+
+  <div class="loan-tabs">
+
+    <button class="loan-tab-btn"
+            onclick="showLoanSection('g11')">
+      Loans
+    </button>
+
+    <button class="loan-tab-btn"
+            onclick="showLoanSection('g7')">
+      Payments
+    </button>
+
+  </div>
+
+  <div id="loanContent"></div>
+
+</div>
 <div id="g11" class="circle-grid"></div>  <!-- Loan buttons -->
 <div id="g7" class="circle-grid"></div>   <!-- Payment buttons -->
 <div id="g5" class="circle-grid"></div>
@@ -690,7 +716,7 @@ for(const id in data){
     `;
   });
 }
-document.getElementById("g4").innerHTML = `
+document.getElementById("g4").innerHTML =
 
 <div class="loan-tabs">
 
@@ -779,35 +805,28 @@ function showHome(btn){
    SHOW GROUP
 ========================= */
 
-function showGroup(
-  id,
-  btn
-){
+function showGroup(id,btn){
 
   clearActive();
 
-  btn.classList.add(
-    'active'
-  );
+  btn.classList.add('active');
 
   hideGroups();
 
-  document
-    .getElementById(id)
-    .style.display = 'grid';
-if(id === 'g4'){
-   showLoanSection('g11');
-}
-}
+  document.getElementById(id).style.display='block';
 
+  if(id==='g4'){
+     showLoanSection('g11');
+  }
+  else{
+     document.getElementById(id).style.display='grid';
+  }
+}
 function showLoanSection(id){
 
-  document.getElementById("loanContent")
-          .innerHTML =
-          document.getElementById(id).innerHTML;
-
-}
- 
+  document.getElementById("loanContent").innerHTML =
+      document.getElementById(id).innerHTML;
+} 
 /* =========================
    OPEN SIDE MENU
 ========================= */
