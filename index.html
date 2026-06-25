@@ -10,8 +10,7 @@
   box-sizing:border-box;
 }
 
- 
- 
+  
   body{
   margin:0;
   font-family:Arial,sans-serif;
@@ -213,35 +212,40 @@ background:#5f84e8;
   font-size:15px;
   font-weight:600;
 }
-  .circle-grid{
+ .circle-grid{
   display:none;
-  grid-template-columns:repeat(2,110px);
-  justify-content:center;
+  grid-template-columns:repeat(3,1fr);
   justify-items:center;
-  align-items:center;
-  gap:35px 40px;
+  align-items:start;
+  gap:25px 10px;
   width:100%;
-  margin-top:30px;
+  margin-top:20px;
 }
 .loan-tabs{
   display:flex;
   justify-content:center;
   gap:12px;
-  margin-top:10px;
-  margin-bottom:15px;
+  margin:15px 0;
 }
 
 .loan-tab-btn{
-  min-width:120px;
-  height:40px;
+  width:140px;
+  height:55px;
   border:none;
   border-radius:12px;
   background:#dce7ff;
-  color:#000;
-  font-size:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
   cursor:pointer;
+  font-size:14px;
 }
 
+.loan-tab-btn img{
+  width:24px;
+  height:24px;
+}
 .loan-tab-btn:hover{
   background:#cfdcff;
 }
@@ -515,24 +519,31 @@ background:#5f84e8;
 <div id="g1" class="circle-grid"></div>
 <div id="g2" class="circle-grid"></div>
 <div id="g3" class="circle-grid"></div>
- <div id="g4" class="circle-grid">
+<div id="g4" style="display:none;">
 
   <div class="loan-tabs">
 
     <button class="loan-tab-btn"
             onclick="showLoanSection('g11')">
-      Loans
+
+      <img src="Loans1.png">
+      <span>Loans</span>
+
     </button>
 
     <button class="loan-tab-btn"
             onclick="showLoanSection('g7')">
-      Payments
+
+      <img src="Payments1.png">
+      <span>Payments</span>
+
     </button>
 
   </div>
 
   <div id="loanContent"></div>
 
+</div>
 </div>
 <div id="g11" class="circle-grid"></div>  <!-- Loan buttons -->
 <div id="g7" class="circle-grid"></div>   <!-- Payment buttons -->
@@ -823,7 +834,8 @@ function showLoanSection(id){
 
   document.getElementById("loanContent").innerHTML =
       document.getElementById(id).innerHTML;
-} 
+
+}
 /* =========================
    OPEN SIDE MENU
 ========================= */
