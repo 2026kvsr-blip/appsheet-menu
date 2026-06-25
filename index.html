@@ -9,7 +9,8 @@
   *{
   box-sizing:border-box;
 }
-  
+
+ 
   body{
   margin:0;
   font-family:Arial,sans-serif;
@@ -395,7 +396,6 @@ background:#5f84e8;
   gap:25px 10px;
   margin-top:20px;
 }
-
 </style>
 
 </head>
@@ -548,7 +548,6 @@ background:#5f84e8;
 
   <div id="loanContent"></div>
 
-</div>
 </div>
 <div id="g11" class="circle-grid"></div>  <!-- Loan buttons -->
 <div id="g7" class="circle-grid"></div>   <!-- Payment buttons -->
@@ -837,9 +836,17 @@ function showGroup(id,btn){
 }
 function showLoanSection(id){
 
-  document.getElementById("loanContent").innerHTML =
-      document.getElementById(id).innerHTML;
+  const loanContent =
+    document.getElementById("loanContent");
 
+  loanContent.innerHTML =
+    document.getElementById(id).innerHTML;
+
+  loanContent.style.display = "grid";
+  loanContent.style.gridTemplateColumns =
+      "repeat(3,1fr)";
+  loanContent.style.justifyItems = "center";
+  loanContent.style.gap = "25px 10px";
 }
 /* =========================
    OPEN SIDE MENU
