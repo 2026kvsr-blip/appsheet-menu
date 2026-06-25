@@ -9,6 +9,7 @@
   *{
   box-sizing:border-box;
 }
+
  
   body{
   margin:0;
@@ -224,16 +225,16 @@ background:#5f84e8;
 .loan-tabs{
   display:flex;
   justify-content:center;
-  gap:10px;
-  margin-top:10px;
+  gap:12px;
+  margin-top:15px;
 }
 
 .loan-tab-btn{
-  padding:8px 18px;
-  border:1px solid #c4d4ff;
+  min-width:120px;
+  height:42px;
+  border:none;
   border-radius:12px;
   background:#dce7ff;
-  color:#000;
   font-size:14px;
   cursor:pointer;
 }
@@ -446,11 +447,12 @@ background:#5f84e8;
     <span>Loans</span>
   </a>
 
-  <a href="#" class="rect-btn"
-     onclick="showGroup('g10',this)">
-    <img src="Income1.png">
-    <span>Income</span>
-  </a>
+ <a href="#"
+   class="rect-btn"
+   onclick="showGroup('g10',this);return false;">
+   <img src="Income1.png">
+   <span>Income</span>
+</a>
 
 </div>
       <!-- Language Dropdown -->
@@ -500,12 +502,13 @@ background:#5f84e8;
 <div id="g2" class="circle-grid"></div>
 <div id="g3" class="circle-grid"></div>
 <div id="g4" class="circle-grid"></div>
+ <div id="g10" class="circle-grid"></div>
  <div id="g11" class="circle-grid"></div>
 <div id="g6" class="circle-grid"></div>
 <div id="g7" class="circle-grid"></div>
 <div id="g8" class="circle-grid"></div>
 <div id="g9" class="circle-grid"></div>
-<div id="g10" class="circle-grid"></div>
+<div id="g5" class="circle-grid"></div>
  
 </div>   <!-- container close -->
   <!-- ======================
@@ -537,10 +540,11 @@ background:#5f84e8;
   </a>
 
 <a href="#"
-     class="nav-btn"
-     onclick="showGroup('g5',this);return false;">
-    <img src="Memories.png">
-    <div>Memories</div>
+   class="nav-btn"
+   onclick="showGroup('g5',this);return false;">
+   <img src="Memories1.png">
+   <div>Memories</div>
+</a>
 
  
   <a href="#"
@@ -682,23 +686,20 @@ for(const id in data){
   });
 }
 document.getElementById("g4").innerHTML = `
-
 <div class="loan-tabs">
 
   <button class="loan-tab-btn"
           onclick="showGroup('g11',this)">
-    Loans
+      Loans
   </button>
 
   <button class="loan-tab-btn"
           onclick="showGroup('g7',this)">
-    Payments
+      Payments
   </button>
 
 </div>
-
 `;
-
  
  /* Loan Menu */
 
