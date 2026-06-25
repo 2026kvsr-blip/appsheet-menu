@@ -9,6 +9,7 @@
   *{
   box-sizing:border-box;
 }
+
  
   body{
   margin:0;
@@ -709,33 +710,8 @@ document.getElementById("g4").innerHTML = `
 
 `; /* Loan Menu */
 
-document.getElementById("g4").innerHTML = `
 
-<a href="#"
-   class="circle-item"
-   onclick="showGroup('g11',this);return false;">
-
-   <div class="circle">
-      <img src="Loans.png">
-   </div>
-
-   <span>Loans</span>
-
-</a>
-
-<a href="#"
-   class="circle-item"
-   onclick="showGroup('g7',this);return false;">
-
-   <div class="circle">
-      <img src="Payments12.png">
-   </div>
-
-   <span>Payments</span>
-
-</a>
-
-`;
+`
 /* =========================
    HIDE ALL GROUPS
 ========================= */
@@ -819,20 +795,18 @@ function showGroup(
   document
     .getElementById(id)
     .style.display = 'grid';
-
+if(id === 'g4'){
+   showLoanSection('g11');
+}
 }
 
 function showLoanSection(id){
 
-  const source =
-    document.getElementById(id);
+  document.getElementById("loanContent")
+          .innerHTML =
+          document.getElementById(id).innerHTML;
 
-  const target =
-    document.getElementById("loanContent");
-
-  target.innerHTML = source.innerHTML;
-  target.style.display = "grid";
-} 
+}
  
 /* =========================
    OPEN SIDE MENU
